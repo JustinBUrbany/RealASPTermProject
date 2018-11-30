@@ -25,6 +25,7 @@ namespace ASPTermProject.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult DogSearch(DogModel model)
         {
             List<Dog> dogs;
@@ -40,6 +41,7 @@ namespace ASPTermProject.Controllers
             return View(dogModels);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult BreederSearch(DogModel model)
         {
             return View();

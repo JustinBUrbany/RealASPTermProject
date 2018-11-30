@@ -31,6 +31,19 @@ Select *
 	Where DogType = @Type
 	Order By Name
 END
+Create Procedure Dog_GetListTypeSex
+(
+	@Type varchar(50),
+	@Sex varchar(25)
+)
+AS
+BEGIN
+Select *
+	FROM FinalDogs
+	Where DogType = @Type AND Sex = @Sex
+	Order By Name
+END
+
 
 Insert INto FinalDogs(DogType, Name, Age, Sex,ImagePath)
 Values ('German Sheppard', 'Chuck', 5, 'Male', '/Images/GShep.jpeg')
