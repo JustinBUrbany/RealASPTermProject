@@ -1,0 +1,42 @@
+﻿@model DogModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_OtherLayout";
+}
+<div class="center">
+    <h1>Breeder Meeter</h1>
+    <img class="home" src="~/Images/GShep.jpeg" alt="German Shepard">
+
+    <form method="post" asp-action="DogSearch" asp-controller="Home">
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <h4 class="home">Search For Specific Dogs</h4>
+            <label asp-for="DogType" class="control-label">Dog Breed</label>
+            <select asp-for="DogType" asp-items="@(new SelectList(DogModel.DogTypes))" class="form-control"></select>
+            <span asp-validation-for="DogType"></span>
+            <label asp-for="Sex" class="control-label">Gender</label>
+            <select asp-for="Sex" class="form-control">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Both</option>
+            </select>
+            <span asp-validation-for="Sex"></span>
+        </div>
+        <button type="Submit" class="btn btn-primary search">Search For Dogs</button>
+    </form>
+    <form method="post" asp-action="BreederSearch" asp-controller="Home">
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <h4 class="home">Search For Breeders</h4>
+            <label asp-for="DogType" class="control-label">Dog Breed</label>
+            <select asp-for="DogType" asp-items="@(new SelectList(DogModel.DogTypes))" class="form-control"></select>
+            <span asp-validation-for="DogType"></span>
+        </div>
+        <button type="Submit" class="btn btn-primary search">Search For Dogs</button>
+    </form>
+    <div class="spacing">
+        <partial name="_LoginPartial" />
+    </div>
+</div>
+
+

@@ -1,0 +1,24 @@
+﻿@model List<DogModel>
+@{
+    ViewData["Title"] = "DogSearch";
+    Layout = "_OtherLayout";
+}
+
+<div class="center black">
+    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
+</div>
+
+<div class="center">
+    All Dogs of Breed: @Model[0].DogType
+    <div>
+
+        @foreach (var d in Model)
+        {
+            <img src="@d.ImagePath" , alt="@d.DogType" />
+            <div>Name: @d.Name</div>
+            <div>Age: @d.Age</div>
+            <div>Sex: @d.Sex</div>
+        }
+    </div>
+        <partial name="_LoginPartial" />
+</div>
